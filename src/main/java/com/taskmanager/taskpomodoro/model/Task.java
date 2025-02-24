@@ -1,14 +1,12 @@
 package com.taskmanager.taskpomodoro.model;
 
 import lombok.Data;
-import org.springframework.cglib.core.Local;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.CollectionCallback;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 
 @Data
-@Document(collation = "tasks") // Define que essa classe ser[a uma coleção mongoDB
+@Document(collection = "tasks") // Define que essa classe ser[a uma coleção mongoDB
 public class Task {
 
     @Id
@@ -20,4 +18,7 @@ public class Task {
     private int duration;
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    public void setId(String id) {
+        this.id = id;
+    }
 }
